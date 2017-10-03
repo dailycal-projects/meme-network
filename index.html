@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<head>
+<style type="text/css">
+  #sigma-container {
+    max-width: 1200px;
+    height: 800px;
+    margin: auto;
+  }
+</style>
+</head>
+
+<body>
+<div id="sigma-container"></div>
+
+
+<script src="sigma/sigma.js"></script>
+<script src="sigma/plugins/sigma.parsers.gexf.min.js"></script>
+<!--<script src="sigma/plugins/sigma.plugins.filter.min.js"></script>-->
+<script>
+  sigma.parsers.gexf(
+    'data/graph.gexf',
+    { // Here is the ID of the DOM element that
+      // will contain the graph:
+      container: 'sigma-container',
+      settings: {
+          minNodeSize: 1,
+          maxNodeSize: 5,
+          minEdgeSize: 1,
+          maxEdgeSize: 1,
+          defaultNodeColor: '#ec5148'
+      }
+    },
+    function(s) {
+      console.log(s);
+    }
+  );
+</script>
+</body>
+</html>
